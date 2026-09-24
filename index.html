@@ -5,30 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Site fictício da Câmara Municipal de Vila Nova">
   <link rel="stylesheet" href="index.css">
-  <title>Câmara Municipal de Vila Nova</title>
+  <title>Câmara Municipal de Floresta do Piauí</title>
   
 </head>
 <body>
 
-  <!-- ACESSIBILIDADE: link para pular direto ao conteúdo (aparece ao apertar Tab) -->
+  
   <a class="pular-menu" href="#conteudo">Pular para o conteúdo principal</a>
 
-  <!-- ========== CABEÇALHO ========== -->
+  
   <header class="cabecalho">
     <div class="cabecalho-interno">
       <a class="logo" href="#topo">
         <span class="logo-icone" aria-hidden="true">🏛️</span>
-        Câmara Municipal de Vila Nova
+        Câmara Municipal de Floresta do Piauí
       </a>
 
-      <!-- Menu hambúrguer feito só com CSS (checkbox escondido + label) -->
+      
       <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir ou fechar o menu">
       <label for="menu-toggle" class="menu-botao">
         <span class="menu-botao-texto">Menu</span>
         <span class="menu-botao-barras" aria-hidden="true"></span>
       </label>
 
-      <!-- ACESSIBILIDADE: nav com aria-label descreve a função do menu -->
+       
       <nav class="menu" aria-label="Menu principal">
         <ul>
           <li><a href="#topo" aria-current="page">Início</a></li>
@@ -42,49 +42,44 @@
 
   <main id="conteudo">
 
-    <!-- ========== BANNER ========== -->
+    
     <section class="banner" id="topo" aria-labelledby="titulo-banner">
       <div class="banner-texto">
-        <h1 id="titulo-banner">Bem-vindo à Câmara de Vila Nova</h1>
+        <h1 id="titulo-banner">Bem-vindo à Câmara de Floresta do Piauí</h1>
         <p>Acompanhe as sessões, conheça seus vereadores e fique por dentro dos projetos que mudam a nossa cidade.</p>
         <a class="botao" href="#projetos">Ver projetos de lei</a>
       </div>
-      <!-- Trocar o link pela imagem real (ex.: imagens/plenario.jpg) -->
       <img src="https://placehold.co/600x350?text=Plenario+da+Camara"
            alt="Plenário da Câmara Municipal durante uma sessão">
     </section>
 
-    <!-- ========== VEREADORES ========== -->
+    
     <section class="secao" id="vereadores" aria-labelledby="titulo-vereadores">
       <h2 id="titulo-vereadores">Nossos Vereadores</h2>
-
-      <!-- Grid flexível: os cards se reorganizam conforme a largura da tela -->
-      <div class="cards">
-
         <article class="card">
           <img src="https://placehold.co/300x300?text=Foto+1" alt="Foto da vereadora Maria Souza">
-          <h3>Maria Souza</h3>
+          <h3>Fábio Costa</h3>
           <p>Partido: PAB</p>
           <p class="cargo">Presidente da Câmara</p>
         </article>
 
         <article class="card">
           <img src="https://placehold.co/300x300?text=Foto+2" alt="Foto do vereador João Pereira">
-          <h3>João Pereira</h3>
+          <h3>Antônio Francisco</h3>
           <p>Partido: PDC</p>
           <p class="cargo">Vice-presidente</p>
         </article>
 
         <article class="card">
           <img src="https://placehold.co/300x300?text=Foto+3" alt="Foto da vereadora Ana Lima">
-          <h3>Ana Lima</h3>
+          <h3>Karine Pimentel</h3>
           <p>Partido: PSV</p>
           <p class="cargo">Primeira secretária</p>
         </article>
 
         <article class="card">
           <img src="https://placehold.co/300x300?text=Foto+4" alt="Foto do vereador Carlos Mendes">
-          <h3>Carlos Mendes</h3>
+          <h3>Rober Batista</h3>
           <p>Partido: PAB</p>
           <p class="cargo">Vereador</p>
         </article>
@@ -92,10 +87,9 @@
       </div>
     </section>
 
-    <!-- ========== PROJETOS DE LEI / NOTÍCIAS ========== -->
+    
     <section class="secao secao-cinza" id="projetos" aria-labelledby="titulo-projetos">
       <h2 id="titulo-projetos">Últimos Projetos de Lei</h2>
-
       <ul class="lista-projetos">
         <li>
           <h3>Projeto de Lei nº 012/2026</h3>
@@ -117,23 +111,21 @@
 
   </main>
 
-  <!-- ========== RODAPÉ ========== -->
+
   <footer class="rodape" id="contato">
     <div class="rodape-interno">
-
       <section aria-labelledby="titulo-contato">
         <h2 id="titulo-contato">Contato</h2>
         <address>
-          Rua das Flores, 100 - Centro<br>
-          Vila Nova - PI<br>
+          Rua Francisco Matias de Lima, S/N - Centro<br>
+          Floresta do Piauí - PI<br>
           Telefone: (89) 3000-0000<br>
-          E-mail: contato@camaravilanova.fake
+          E-mail: contato@camaraflorestapi.fake
         </address>
       </section>
 
       <section aria-labelledby="titulo-form">
         <h2 id="titulo-form">Receba novidades</h2>
-        <!-- ACESSIBILIDADE: label ligado ao input pelo for/id -->
         <form action="#" method="post">
           <label for="email">Seu e-mail</label>
           <input type="email" id="email" name="email" placeholder="nome@email.com" required>
@@ -142,7 +134,7 @@
       </section>
 
     </div>
-    <p class="copyright">© 2026 Câmara Municipal de Vila Nova - Site fictício para trabalho acadêmico.</p>
+    <p class="copyright">© 2026 Câmara Municipal de Floresta do Piauí - Site fictício para trabalho acadêmico.</p>
   </footer>
 
 </body>

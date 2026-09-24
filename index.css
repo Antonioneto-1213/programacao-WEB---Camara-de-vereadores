@@ -22,24 +22,23 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--texto);
   background: var(--branco);
-  /* Unidade relativa: o texto respeita o tamanho de fonte escolhido pelo usuário */
   font-size: 1rem;
   line-height: 1.6;
 }
 
-/* Imagens responsivas: nunca passam da largura do espaço onde estão */
+
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Títulos com tamanho fluido: clamp(mínimo, ideal, máximo) */
+
 h1 { font-size: clamp(1.6rem, 5vw, 2.6rem); line-height: 1.2; }
 h2 { font-size: clamp(1.3rem, 3.5vw, 1.9rem); }
 h3 { font-size: 1.15rem; margin: 0.5rem 0; }
 
-/* ACESSIBILIDADE: contorno bem visível ao navegar com o teclado (Tab) */
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -48,7 +47,7 @@ input:focus-visible,
   outline-offset: 3px;
 }
 
-/* ACESSIBILIDADE: link "pular para o conteúdo", só aparece com o foco */
+
 .pular-menu {
   position: absolute;
   left: 0.5rem;
@@ -62,13 +61,13 @@ input:focus-visible,
   top: 0.5rem;
 }
 
-/* ===== CABEÇALHO E MENU ===== */
+
 .cabecalho {
   background: var(--azul);
   color: var(--branco);
 }
 
-/* Flexbox: logo de um lado e menu do outro */
+
 .cabecalho-interno {
   max-width: 70rem;
   margin: 0 auto;
@@ -106,7 +105,7 @@ input:focus-visible,
   border-bottom: 3px solid var(--dourado);
 }
 
-/* Botão hambúrguer: escondido no computador */
+
 .menu-toggle {
   position: absolute;
   opacity: 0;
@@ -115,7 +114,7 @@ input:focus-visible,
   display: none;
 }
 
-/* ===== BANNER ===== */
+
 .banner {
   max-width: 70rem;
   margin: 0 auto;
@@ -134,7 +133,7 @@ input:focus-visible,
   border-radius: 8px;
 }
 
-/* Botão usado no banner e no formulário */
+
 .botao {
   display: inline-block;
   background: var(--azul);
@@ -150,7 +149,7 @@ input:focus-visible,
   background: var(--azul-escuro);
 }
 
-/* ===== SEÇÕES ===== */
+
 .secao {
   max-width: 70rem;
   margin: 0 auto;
@@ -167,8 +166,7 @@ input:focus-visible,
   margin-right: auto;
 }
 
-/* ===== CARDS DOS VEREADORES ===== */
-/* CSS Grid: colunas de no mínimo 14rem, quebram sozinhas conforme a tela */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
@@ -198,7 +196,7 @@ input:focus-visible,
   color: var(--azul);
 }
 
-/* ===== LISTA DE PROJETOS ===== */
+
 .lista-projetos {
   list-style: none;
   padding: 0;
@@ -221,7 +219,7 @@ input:focus-visible,
   color: #444444;
 }
 
-/* ===== RODAPÉ ===== */
+
 .rodape {
   background: var(--azul-escuro);
   color: var(--branco);
@@ -272,17 +270,17 @@ input:focus-visible,
   margin: 1.5rem 0 0;
 }
 
-/* ===== RESPONSIVIDADE (media queries) ===== */
 
-/* Tablets e celulares */
+
+
 @media (max-width: 48rem) {
 
-  /* Banner vira coluna */
+  
   .banner {
     flex-direction: column;
   }
 
-  /* Aparece o botão hambúrguer */
+
   .menu-botao {
     display: flex;
     align-items: center;
@@ -293,7 +291,7 @@ input:focus-visible,
     border-radius: 6px;
   }
 
-  /* As três barrinhas do ícone */
+  
   .menu-botao-barras,
   .menu-botao-barras::before,
   .menu-botao-barras::after {
@@ -314,7 +312,7 @@ input:focus-visible,
   .menu-botao-barras::before { top: -7px; }
   .menu-botao-barras::after  { top: 7px; }
 
-  /* Menu escondido até clicar no botão */
+  
   .menu {
     display: none;
     width: 100%;
@@ -332,7 +330,7 @@ input:focus-visible,
   }
 }
 
-/* ACESSIBILIDADE: quem prefere menos movimento não tem rolagem suave */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
