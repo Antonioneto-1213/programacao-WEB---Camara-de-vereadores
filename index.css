@@ -1,0 +1,342 @@
+
+
+:root {
+  --azul: #1a3a6b;
+  --azul-escuro: #12284a;
+  --dourado: #ffd54f;
+  --cinza: #f0f2f5;
+  --texto: #222222;
+  --branco: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--texto);
+  background: var(--branco);
+  /* Unidade relativa: o texto respeita o tamanho de fonte escolhido pelo usuário */
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Imagens responsivas: nunca passam da largura do espaço onde estão */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Títulos com tamanho fluido: clamp(mínimo, ideal, máximo) */
+h1 { font-size: clamp(1.6rem, 5vw, 2.6rem); line-height: 1.2; }
+h2 { font-size: clamp(1.3rem, 3.5vw, 1.9rem); }
+h3 { font-size: 1.15rem; margin: 0.5rem 0; }
+
+/* ACESSIBILIDADE: contorno bem visível ao navegar com o teclado (Tab) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+.menu-toggle:focus-visible + .menu-botao {
+  outline: 3px solid var(--dourado);
+  outline-offset: 3px;
+}
+
+/* ACESSIBILIDADE: link "pular para o conteúdo", só aparece com o foco */
+.pular-menu {
+  position: absolute;
+  left: 0.5rem;
+  top: -4rem;
+  background: var(--dourado);
+  color: var(--azul-escuro);
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+.pular-menu:focus {
+  top: 0.5rem;
+}
+
+/* ===== CABEÇALHO E MENU ===== */
+.cabecalho {
+  background: var(--azul);
+  color: var(--branco);
+}
+
+/* Flexbox: logo de um lado e menu do outro */
+.cabecalho-interno {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  color: var(--branco);
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu a {
+  color: var(--branco);
+  text-decoration: none;
+  padding: 0.4rem 0.2rem;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+  border-bottom: 3px solid var(--dourado);
+}
+
+/* Botão hambúrguer: escondido no computador */
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+}
+.menu-botao {
+  display: none;
+}
+
+/* ===== BANNER ===== */
+.banner {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.banner-texto {
+  flex: 1;
+}
+
+.banner img {
+  flex: 1;
+  border-radius: 8px;
+}
+
+/* Botão usado no banner e no formulário */
+.botao {
+  display: inline-block;
+  background: var(--azul);
+  color: var(--branco);
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.botao:hover {
+  background: var(--azul-escuro);
+}
+
+/* ===== SEÇÕES ===== */
+.secao {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.secao-cinza {
+  max-width: none;
+  background: var(--cinza);
+}
+.secao-cinza > * {
+  max-width: 68rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== CARDS DOS VEREADORES ===== */
+/* CSS Grid: colunas de no mínimo 14rem, quebram sozinhas conforme a tela */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--branco);
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card img {
+  margin: 0 auto 0.5rem;
+  border-radius: 50%;
+  width: 60%;
+}
+
+.card p {
+  margin: 0.2rem 0;
+}
+
+.cargo {
+  font-weight: bold;
+  color: var(--azul);
+}
+
+/* ===== LISTA DE PROJETOS ===== */
+.lista-projetos {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.lista-projetos li {
+  background: var(--branco);
+  border-left: 6px solid var(--azul);
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.lista-projetos p {
+  margin: 0.3rem 0;
+}
+
+.lista-projetos time {
+  font-size: 0.9rem;
+  color: #444444;
+}
+
+/* ===== RODAPÉ ===== */
+.rodape {
+  background: var(--azul-escuro);
+  color: var(--branco);
+  padding: 1.5rem 1rem;
+}
+
+.rodape-interno {
+  max-width: 70rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.rodape-interno section {
+  flex: 1 1 16rem;
+}
+
+.rodape address {
+  font-style: normal;
+}
+
+.rodape label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.rodape input {
+  width: 100%;
+  max-width: 20rem;
+  padding: 0.6rem;
+  margin-bottom: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #999999;
+  font-size: 1rem;
+  display: block;
+}
+
+.rodape .botao {
+  background: var(--dourado);
+  color: var(--azul-escuro);
+  font-weight: bold;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.9rem;
+  margin: 1.5rem 0 0;
+}
+
+/* ===== RESPONSIVIDADE (media queries) ===== */
+
+/* Tablets e celulares */
+@media (max-width: 48rem) {
+
+  /* Banner vira coluna */
+  .banner {
+    flex-direction: column;
+  }
+
+  /* Aparece o botão hambúrguer */
+  .menu-botao {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+    border: 2px solid var(--branco);
+    border-radius: 6px;
+  }
+
+  /* As três barrinhas do ícone */
+  .menu-botao-barras,
+  .menu-botao-barras::before,
+  .menu-botao-barras::after {
+    display: block;
+    width: 1.4rem;
+    height: 3px;
+    background: var(--branco);
+  }
+  .menu-botao-barras {
+    position: relative;
+  }
+  .menu-botao-barras::before,
+  .menu-botao-barras::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+  .menu-botao-barras::before { top: -7px; }
+  .menu-botao-barras::after  { top: 7px; }
+
+  /* Menu escondido até clicar no botão */
+  .menu {
+    display: none;
+    width: 100%;
+  }
+  .menu-toggle:checked ~ .menu {
+    display: block;
+  }
+  .menu ul {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .menu a {
+    display: block;
+    padding: 0.7rem 0.2rem;
+  }
+}
+
+/* ACESSIBILIDADE: quem prefere menos movimento não tem rolagem suave */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+  
