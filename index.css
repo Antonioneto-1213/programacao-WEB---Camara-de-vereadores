@@ -337,4 +337,75 @@ input:focus-visible,
   }
 }
 
-  
+
+.pesquisa-vereadores {
+  margin-bottom: 1.5rem;
+}
+
+.pesquisa-vereadores label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.pesquisa-vereadores input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.7rem;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.botao-favorito {
+  display: block;
+  margin-top: 0.8rem;
+  padding: 0.5rem 1rem;
+  background: var(--branco);
+  color: var(--azul);
+  border: 2px solid var(--azul);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.botao-favorito:hover {
+  background: var(--cinza);
+}
+
+.botao-favorito.ativo {
+  background: var(--dourado);
+  color: var(--azul-escuro);
+  border-color: var(--dourado);
+}
+
+.botao-favorito:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 3px;
+}
+
+.botao-remover {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.8rem;
+  padding: 0.55rem 1rem;
+  background: transparent;
+  color: #b42318;
+  border: 1px solid #d77b76;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.botao-remover:hover {
+  background: #fff1f0;
+  border-color: #b42318;
+}
+
+.botao-remover:focus-visible {
+  outline: 3px solid var(--dourado);
+  outline-offset: 3px;
+}

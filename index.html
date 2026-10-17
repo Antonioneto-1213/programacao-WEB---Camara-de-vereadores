@@ -1,39 +1,41 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Site fictício da Câmara Municipal de Vila Nova">
+  <meta name="description" content="Site fictício da Câmara Municipal de Floresta do Piauí">
   <link rel="stylesheet" href="index.css">
   <title>Câmara Municipal de Floresta do Piauí</title>
-  
 </head>
 <body>
 
-  
   <a class="pular-menu" href="#conteudo">Pular para o conteúdo principal</a>
 
-  
   <header class="cabecalho">
     <div class="cabecalho-interno">
       <a class="logo" href="#topo">
-        <span class="logo-icone" aria-hidden="true">🏛️</span>
         Câmara Municipal de Floresta do Piauí
       </a>
 
-      
-      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir ou fechar o menu">
+      <input
+        type="checkbox"
+        id="menu-toggle"
+        class="menu-toggle"
+        aria-label="Abrir ou fechar o menu"
+      >
+
       <label for="menu-toggle" class="menu-botao">
         <span class="menu-botao-texto">Menu</span>
         <span class="menu-botao-barras" aria-hidden="true"></span>
       </label>
 
-       
       <nav class="menu" aria-label="Menu principal">
         <ul>
           <li><a href="#topo" aria-current="page">Início</a></li>
           <li><a href="#vereadores">Vereadores</a></li>
           <li><a href="#projetos">Projetos de Lei</a></li>
+          <li><a href="#favoritos">Meus Favoritos</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
@@ -42,43 +44,60 @@
 
   <main id="conteudo">
 
-    
     <section class="banner" id="topo" aria-labelledby="titulo-banner">
       <div class="banner-texto">
         <h1 id="titulo-banner">Bem-vindo à Câmara de Floresta do Piauí</h1>
-        <p>Acompanhe as sessões, conheça seus vereadores e fique por dentro dos projetos que mudam a nossa cidade.</p>
+        <p>
+          Acompanhe as sessões, conheça seus vereadores e fique por dentro
+          dos projetos que mudam a nossa cidade.
+        </p>
         <a class="botao" href="#projetos">Ver projetos de lei</a>
       </div>
-      <img src="Plenario Câmara.png"
-           alt="Plenário da Câmara Municipal">
+
+      <img
+        src="imagens/Plenario Câmara.png"
+        alt="Plenário da Câmara Municipal"
+      >
     </section>
 
-    
+   
     <section class="secao" id="vereadores" aria-labelledby="titulo-vereadores">
       <h2 id="titulo-vereadores">Nossos Vereadores</h2>
+
+      <div class="pesquisa-vereadores">
+        <label for="buscar-vereador">Pesquisar vereador:</label>
+        <input
+          type="search"
+          id="buscar-vereador"
+          placeholder="Digite o nome do vereador..."
+        >
+      </div>
+
+      <div class="cards">
+
         <article class="card">
-          <img src="Fabio Costa.jpeg" alt="Foto da vereadora Maria Souza">
+          <img src="imagens/Fabio Costa.jpeg" alt="Foto do vereador Fábio Costa">
           <h3>Fábio Costa</h3>
           <p>Partido: PAB</p>
           <p class="cargo">Presidente da Câmara</p>
         </article>
 
         <article class="card">
-          <img src="Antônio Neto.jpeg" alt="Foto do vereador João Pereira">
+          <img src="imagens/Antônio Neto.jpeg" alt="Foto do vereador Antônio Francisco">
           <h3>Antônio Francisco</h3>
           <p>Partido: PDC</p>
           <p class="cargo">Vice-presidente</p>
         </article>
 
         <article class="card">
-          <img src="Karine Pimentel.jpeg" alt="Foto da vereadora Ana Lima">
+          <img src="imagens/Karine Pimentel.jpeg" alt="Foto da vereadora Karine Pimentel">
           <h3>Karine Pimentel</h3>
           <p>Partido: PSV</p>
           <p class="cargo">Primeira secretária</p>
         </article>
 
         <article class="card">
-          <img src="Rober Batista.jpg" alt="Foto do vereador Carlos Mendes">
+          <img src="imagens/Rober Batista.jpg" alt="Foto do vereador Rober Batista">
           <h3>Rober Batista</h3>
           <p>Partido: PAB</p>
           <p class="cargo">Vereador</p>
@@ -87,33 +106,55 @@
       </div>
     </section>
 
-    
     <section class="secao secao-cinza" id="projetos" aria-labelledby="titulo-projetos">
       <h2 id="titulo-projetos">Últimos Projetos de Lei</h2>
+
       <ul class="lista-projetos">
-        <li>
+
+        <li data-projeto="012/2026">
           <h3>Projeto de Lei nº 012/2026</h3>
           <p>Cria o programa de hortas comunitárias nos bairros.</p>
           <time datetime="2026-09-10">10/09/2026</time>
+          <button type="button" class="botao-favorito" aria-pressed="false">
+            ☆ Favoritar
+          </button>
         </li>
-        <li>
+
+        <li data-projeto="013/2026">
           <h3>Projeto de Lei nº 013/2026</h3>
           <p>Amplia o horário de funcionamento das bibliotecas públicas.</p>
           <time datetime="2026-09-05">05/09/2026</time>
+          <button type="button" class="botao-favorito" aria-pressed="false">
+            ☆ Favoritar
+          </button>
         </li>
-        <li>
+
+        <li data-projeto="014/2026">
           <h3>Projeto de Lei nº 014/2026</h3>
           <p>Institui a semana municipal de conscientização sobre o trânsito.</p>
           <time datetime="2026-08-29">29/08/2026</time>
+          <button type="button" class="botao-favorito" aria-pressed="false">
+            ☆ Favoritar
+          </button>
         </li>
+
       </ul>
     </section>
 
+    <section class="secao" id="favoritos" aria-labelledby="titulo-favoritos">
+      <h2 id="titulo-favoritos">Meus Projetos Favoritos</h2>
+
+      <p id="mensagem-favoritos">
+        Você ainda não possui projetos favoritos.
+      </p>
+
+      <ul class="lista-projetos" id="lista-favoritos"></ul>
+    </section>
+
   </main>
-
-
   <footer class="rodape" id="contato">
     <div class="rodape-interno">
+
       <section aria-labelledby="titulo-contato">
         <h2 id="titulo-contato">Contato</h2>
         <address>
@@ -128,14 +169,26 @@
         <h2 id="titulo-form">Receba novidades</h2>
         <form action="#" method="post">
           <label for="email">Seu e-mail</label>
-          <input type="email" id="email" name="email" placeholder="nome@email.com" required>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="nome@email.com"
+            required
+          >
           <button type="submit" class="botao">Cadastrar</button>
         </form>
       </section>
 
     </div>
-    <p class="copyright">© 2026 Câmara Municipal de Floresta do Piauí.</p>
+
+    <p class="copyright">
+      © 2026 Câmara Municipal de Floresta do Piauí.
+    </p>
   </footer>
+
+  <script src="js/vereadores.js" defer></script>
+  <script src="js/favoritos.js" defer></script>
 
 </body>
 </html>
