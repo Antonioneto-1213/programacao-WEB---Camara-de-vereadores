@@ -1,31 +1,17 @@
-const projetos = [
-  {
-    id: "012/2026",
-    titulo: "Projeto de Lei nº 012/2026",
-    descricao: "Cria o programa de hortas comunitárias nos bairros.",
-    data: "10/09/2026"
-  },
-  {
-    id: "013/2026",
-    titulo: "Projeto de Lei nº 013/2026",
-    descricao: "Amplia o horário de funcionamento das bibliotecas públicas.",
-    data: "05/09/2026"
-  },
-  {
-    id: "014/2026",
-    titulo: "Projeto de Lei nº 014/2026",
-    descricao: "Institui a semana municipal de conscientização sobre o trânsito.",
-    data: "29/08/2026"
-  }
-];
-
-const botoesFavoritos = document.querySelectorAll(".botao-favorito");
 const listaFavoritos = document.getElementById("lista-favoritos");
 const mensagemFavoritos = document.getElementById("mensagem-favoritos");
+const listaProjetosPrincipal = document.getElementById("lista-projetos");
+
 
 let favoritos = JSON.parse(
   localStorage.getItem("projetosFavoritos") || "[]"
 );
+
+
+if (!Array.isArray(favoritos)) {
+  favoritos = [];
+}
+
 
 function salvarFavoritos() {
   localStorage.setItem(
@@ -35,9 +21,10 @@ function salvarFavoritos() {
 }
 
 
-
 function atualizarBotoes() {
-  botoesFavoritos.forEach(function(botao) {
+  const botoes = document.querySelectorAll(".botao-favorito");
+
+  botoes.forEach(function(botao) {
     const projeto = botao.closest("li").dataset.projeto;
     const favoritado = favoritos.includes(projeto);
 
@@ -49,16 +36,14 @@ function atualizarBotoes() {
 
 
 function atualizarListaFavoritos() {
-  listaFavoritos.innerHTML = "";
+  listaFavoritos.replaceChildren();
 
   const projetosFavoritos = projetos.filter(function(projeto) {
     return favoritos.includes(projeto.id);
   });
 
-  mensagemFavoritos.style.display =
-    projetosFavoritos.length === 0 ? "block" : "none";
+  mensagemFavoritos.hidden = projetosFavoritos.length > 0;
 
-  
   projetosFavoritos.forEach(function(projeto) {
     const item = document.createElement("li");
 
@@ -68,9 +53,13 @@ function atualizarListaFavoritos() {
     const descricao = document.createElement("p");
     descricao.textContent = projeto.descricao;
 
-    const data = document.createElement("p");
-    data.textContent = "Data: " + projeto.data;
+    const situacao = document.createElement("p");
+    situacao.textContent = "Situação: " + projeto.situacao;
 
+    const data = document.createElement("p");
+    data.textContent = "Data: " + formatarData(projeto.data);
+    data.className = "data-favorito";
+    
     const botaoRemover = document.createElement("button");
     botaoRemover.type = "button";
     botaoRemover.className = "botao-remover";
@@ -79,13 +68,18 @@ function atualizarListaFavoritos() {
     botaoRemover.addEventListener("click", function() {
       alternarFavorito(projeto.id);
     });
+
     item.appendChild(titulo);
     item.appendChild(descricao);
+    item.appendChild(situacao);
     item.appendChild(data);
     item.appendChild(botaoRemover);
+
     listaFavoritos.appendChild(item);
   });
 }
+
+
 function alternarFavorito(id) {
   if (favoritos.includes(id)) {
     favoritos = favoritos.filter(function(favorito) {
@@ -100,11 +94,23 @@ function alternarFavorito(id) {
   atualizarListaFavoritos();
 }
 
-botoesFavoritos.forEach(function(botao) {
-  botao.addEventListener("click", function() {
-    const projeto = botao.closest("li").dataset.projeto;
-    alternarFavorito(projeto);
-  });
+
+listaProjetosPrincipal.addEventListener("click", function(evento) {
+  const botao = evento.target.closest(".botao-favorito");
+
+  if (!botao || !listaProjetosPrincipal.contains(botao)) {
+    return;
+  }
+
+  const projeto = botao.closest("li").dataset.projeto;
+  alternarFavorito(projeto);
 });
+
+
+document.addEventListener("projetosAtualizados", function() {
+  atualizarBotoes();
+});
+
+
 atualizarBotoes();
 atualizarListaFavoritos();

@@ -37,13 +37,18 @@
           <li><a href="#projetos">Projetos de Lei</a></li>
           <li><a href="#favoritos">Meus Favoritos</a></li>
           <li><a href="#contato">Contato</a></li>
+          <li><a href="#preferencias">Preferências</a></li>
         </ul>
       </nav>
+      <button type="button" id="alternar-tema" class="botao-tema">
+      Tema escuro
+      </button>
     </div>
   </header>
 
   <main id="conteudo">
 
+  
     <section class="banner" id="topo" aria-labelledby="titulo-banner">
       <div class="banner-texto">
         <h1 id="titulo-banner">Bem-vindo à Câmara de Floresta do Piauí</h1>
@@ -60,7 +65,7 @@
       >
     </section>
 
-   
+    
     <section class="secao" id="vereadores" aria-labelledby="titulo-vereadores">
       <h2 id="titulo-vereadores">Nossos Vereadores</h2>
 
@@ -106,41 +111,51 @@
       </div>
     </section>
 
+    
     <section class="secao secao-cinza" id="projetos" aria-labelledby="titulo-projetos">
-      <h2 id="titulo-projetos">Últimos Projetos de Lei</h2>
+      <h2 id="titulo-projetos">Projetos de Lei</h2>
 
-      <ul class="lista-projetos">
+      <div class="filtros-projetos">
 
-        <li data-projeto="012/2026">
-          <h3>Projeto de Lei nº 012/2026</h3>
-          <p>Cria o programa de hortas comunitárias nos bairros.</p>
-          <time datetime="2026-09-10">10/09/2026</time>
-          <button type="button" class="botao-favorito" aria-pressed="false">
-            ☆ Favoritar
-          </button>
-        </li>
+        <div class="campo-filtro">
+          <label for="buscar-projeto">Pesquisar projeto:</label>
+          <input
+            type="search"
+            id="buscar-projeto"
+            placeholder="Número, assunto ou descrição..."
+          >
+        </div>
 
-        <li data-projeto="013/2026">
-          <h3>Projeto de Lei nº 013/2026</h3>
-          <p>Amplia o horário de funcionamento das bibliotecas públicas.</p>
-          <time datetime="2026-09-05">05/09/2026</time>
-          <button type="button" class="botao-favorito" aria-pressed="false">
-            ☆ Favoritar
-          </button>
-        </li>
+        <div class="campo-filtro">
+          <label for="filtrar-situacao">Situação:</label>
+          <select id="filtrar-situacao">
+            <option value="todos">Todas as situações</option>
+            <option value="Em tramitação">Em tramitação</option>
+            <option value="Aprovado">Aprovado</option>
+            <option value="Arquivado">Arquivado</option>
+          </select>
+        </div>
 
-        <li data-projeto="014/2026">
-          <h3>Projeto de Lei nº 014/2026</h3>
-          <p>Institui a semana municipal de conscientização sobre o trânsito.</p>
-          <time datetime="2026-08-29">29/08/2026</time>
-          <button type="button" class="botao-favorito" aria-pressed="false">
-            ☆ Favoritar
-          </button>
-        </li>
+        <div class="campo-filtro">
+          <label for="ordenar-projetos">Ordenar por:</label>
+          <select id="ordenar-projetos">
+            <option value="recentes">Mais recentes</option>
+            <option value="antigos">Mais antigos</option>
+          </select>
+        </div>
 
-      </ul>
+      </div>
+
+      <p id="resultado-projetos" role="status" aria-live="polite"></p>
+
+      <ul class="lista-projetos" id="lista-projetos"></ul>
+
+      <p id="mensagem-projetos" hidden>
+        Nenhum projeto encontrado para os filtros selecionados.
+      </p>
     </section>
 
+    
     <section class="secao" id="favoritos" aria-labelledby="titulo-favoritos">
       <h2 id="titulo-favoritos">Meus Projetos Favoritos</h2>
 
@@ -151,7 +166,125 @@
       <ul class="lista-projetos" id="lista-favoritos"></ul>
     </section>
 
+    <section class="secao" id="preferencias" aria-labelledby="titulo-preferencias">
+      <h2 id="titulo-preferencias">Preferências do Portal</h2>
+
+      <p>
+        Personalize a aparência do portal conforme suas necessidades.
+        As preferências são armazenadas neste navegador.
+      </p>
+
+      <div class="painel-preferencias">
+
+        <div class="campo-preferencia">
+          <label for="tamanho-fonte">Tamanho da fonte:</label>
+          <select id="tamanho-fonte">
+            <option value="normal">Normal</option>
+            <option value="grande">Grande</option>
+          </select>
+        </div>
+
+        <div class="campo-preferencia">
+          <label for="espacamento-cards">Espaçamento dos cards:</label>
+          <select id="espacamento-cards">
+            <option value="normal">Normal</option>
+            <option value="compacto">Compacto</option>
+          </select>
+        </div>
+
+      <div class="campo-preferencia">
+        <label for="alto-contraste">Contraste:</label>
+
+        <label class="preferencia-checkbox">
+        <input type="checkbox" id="alto-contraste">
+          Ativar alto contraste
+        </label>
+    </div>
+
+      </div>
+
+      <h3>Preferências de conteúdo e cookies</h3>
+
+      <p>
+        Escolha quais elementos opcionais deseja visualizar.
+        Essas opções serão armazenadas em cookies apenas
+        mediante seu consentimento.
+      </p>
+
+      <div class="painel-preferencias">
+
+        <label class="preferencia-checkbox">
+          <input type="checkbox" id="cookie-banner" checked>
+          Exibir banner principal
+        </label>
+
+        <label class="preferencia-checkbox">
+          <input type="checkbox" id="cookie-datas" checked>
+          Exibir datas dos projetos
+        </label>
+
+        <label class="preferencia-checkbox">
+          <input type="checkbox" id="cookie-contador" checked>
+          Exibir contador de projetos
+        </label>
+
+        <label class="preferencia-checkbox">
+          <input type="checkbox" id="cookie-dicas" checked>
+          Exibir dicas de navegação
+        </label>
+
+      </div>
+
+      <p id="dica-navegacao" class="dica-navegacao">
+        Dica: utilize os filtros para encontrar projetos de lei
+        e salve os mais interessantes em seus favoritos.
+      </p>
+
+      <div class="acoes-preferencias">
+        <button type="button" id="salvar-preferencias-cookies" class="botao">
+          Salvar preferências de cookies
+        </button>
+
+        <button type="button" id="redefinir-preferencias" class="botao">
+          Restaurar aparência
+        </button>
+      </div>
+
+      <p id="mensagem-preferencias" role="status" aria-live="polite"></p>
+    </section>
+
   </main>
+
+
+  
+  <div id="aviso-cookies" class="aviso-cookies" hidden>
+    <div class="aviso-cookies-conteudo">
+      <div>
+        <h2>Preferências de cookies</h2>
+        <p>
+          Este portal utiliza cookies opcionais para armazenar
+          preferências de visualização. Você pode aceitar,
+          rejeitar ou configurar suas preferências.
+        </p>
+      </div>
+
+      <div class="acoes-cookies">
+        <button type="button" id="aceitar-cookies" class="botao">
+          Aceitar
+        </button>
+
+        <button type="button" id="rejeitar-cookies" class="botao">
+          Rejeitar opcionais
+        </button>
+
+        <a href="#preferencias" id="configurar-cookies" class="botao">
+          Configurar
+        </a>
+      </div>
+    </div>
+  </div>
+
+
   <footer class="rodape" id="contato">
     <div class="rodape-interno">
 
@@ -188,7 +321,12 @@
   </footer>
 
   <script src="js/vereadores.js" defer></script>
+  <script src="js/projetos.js" defer></script>
   <script src="js/favoritos.js" defer></script>
+  <script src="js/tema.js" defer></script>
+  <script src="js/sessao.js" defer></script>
+  <script src="js/preferencias.js" defer></script>
+  <script src="js/cookies.js" defer></script>
 
 </body>
 </html>
