@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nome": "Fábio Costa",
+    "partido": "PAB",
+    "cargo": "Presidente da Câmara",
+    "foto": "/imagens/Fabio Costa.jpeg"
+  },
+  {
+    "id": 2,
+    "nome": "Antônio Francisco",
+    "partido": "PDC",
+    "cargo": "Vice-presidente",
+    "foto": "/imagens/Antônio Neto.jpeg"
+  },
+  {
+    "id": 3,
+    "nome": "Karine Pimentel",
+    "partido": "PSV",
+    "cargo": "Primeira secretária",
+    "foto": "/imagens/Karine Pimentel.jpeg"
+  },
+  {
+    "id": 4,
+    "nome": "Rober Batista",
+    "partido": "PAB",
+    "cargo": "Vereador",
+    "foto": "/imagens/Rober Batista.jpg"
+  }
+]
